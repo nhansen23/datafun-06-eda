@@ -1,7 +1,7 @@
 ## Project Name: datafun-06-eda
 ```
-This project showcases the continued practice of the integration
-of Python and SQL.
+This project is an Exploratory Data Analysis of historical
+data from the Olympic games.
 
 Author: Nicole Hansen
 ```
