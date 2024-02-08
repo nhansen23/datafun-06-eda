@@ -23,3 +23,8 @@ Author: Nicole Hansen
     py -m pip install jupyterlab pandas pyarrow matplotlib seaborn
 8. Freeze dependencies
     py -m pip freeze > requirements.txt
+
+## Data Sets
+[Olympic Data Sets](https://github.com/nhansen23/datafun-05-sql-project/tree/main/data
+    - athlete_events
+    - country_definitions
