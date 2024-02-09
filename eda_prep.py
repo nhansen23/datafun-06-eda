@@ -1,8 +1,11 @@
 '''
 This script will create the database for the Olympic
 EDA.  The database will contain two tables: one for
-athletes and their events and another table for a 
-country reference.
+athletes and their events and another table for the 
+country references.
+
+This script will also populate the athletes and countries
+tables with the date in the CSV files.
 '''
 
 # Import Standard Libraries
@@ -40,3 +43,27 @@ def create_tables():
                 print("Tables created successfully.")
     except sqlite3.Error as e:
         print("Error creating tables:",e)
+
+def insert_data_from_csv():
+    '''Function to use pandas to read data from CSV files
+       and insert the records into their respective tables'''
+    try:
+        athletes_data_push = pathlib.Path("data","athlete_events.csv")
+        countries_data_push = pathlib.Path("data","country_definitions.csv")
+        athletes_df = pd.read_csv(athletes_data_push)
+        countries_df = pd.read_csv(countries_data_push)
+        with sqlite3.connect(db_file) as conn:
+            athletes_df.to_sql("athletes", conn, if_exists="replace", index=False)
+            countries_df.to_sql("countries", conn, if_exists="replace", index=False)
+            print("Data inserted successfully.")
+    except(sqlite3.Error, pd.errors.EmptyDataError, FileNotFoundError) as e:
+        print("Error inserting data:", e)
+
+
+def main():
+    create_database()
+    create_tables()
+    insert_data_from_csv()
+
+if __name__ == "__main__":
+    main()
