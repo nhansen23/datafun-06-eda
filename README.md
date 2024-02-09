@@ -26,10 +26,12 @@ Author: Nicole Hansen
 
 ## Data Sets
 [Olympic Data Sets](https://github.com/nhansen23/datafun-05-sql-project/tree/main/data)
+
     - athlete_events
         This data set lists Olympic athletes and their sex, age, height, weight along
         with their team, country, Olympic game title, year, season, city, sport, event, 
         and medal (if applicable) for each event they participated in.
+        
     - country_definitions
         This data set links to athlete_events and lists the countries.
 
