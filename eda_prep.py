@@ -44,6 +44,18 @@ def create_tables():
     except sqlite3.Error as e:
         print("Error creating tables:",e)
 
+def create_join_table():
+    '''Function to read and execute SQL statements to create a table for EDA'''
+    try:
+        with sqlite3.connect(db_file) as conn:
+                sql_file = pathlib.Path("sql", "create_olympics_tables.sql")
+                with open(sql_file, "r") as file:
+                    sql_script = file.read()
+                conn.executescript(sql_script)
+                print("Table created successfully.")
+    except sqlite3.Error as e:
+        print("Error creating tables:",e)
+
 def insert_data_from_csv():
     '''Function to use pandas to read data from CSV files
        and insert the records into their respective tables'''
@@ -63,6 +75,7 @@ def insert_data_from_csv():
 def main():
     create_database()
     create_tables()
+    create_join_table()
     insert_data_from_csv()
 
 if __name__ == "__main__":
