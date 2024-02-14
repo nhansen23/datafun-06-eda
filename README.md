@@ -33,5 +33,19 @@ Author: Nicole Hansen
         and medal (if applicable) for each event they participated in.
         
     - country_definitions
-        This data set links to athlete_events and lists the countries.
+        This data set links to athlete_events and lists the countries
+
+## Database
+
+    - athletes: table loaded with athlete_events data
+    - countries: table loaded with country_definitions data
+    - olympicData: table that joins athletes and countries (created for more practice in creating tables
+        and to use for the EDA)
+    
+## Notebook for EDA
+[nicole_eda.ipynb](https://github.com/nhansen23/datafun-06-eda/blob/main/nicole_eda.ipynb)
+    This notebook shows a variety of data analysis on athletes, events, and countries.
+
+
+
 
