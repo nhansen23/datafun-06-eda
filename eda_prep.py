@@ -48,7 +48,7 @@ def create_join_table():
     '''Function to read and execute SQL statements to create a table for EDA'''
     try:
         with sqlite3.connect(db_file) as conn:
-                sql_file = pathlib.Path("sql", "create_olympics_tables.sql")
+                sql_file = pathlib.Path("sql", "create_olympics_table.sql")
                 with open(sql_file, "r") as file:
                     sql_script = file.read()
                 conn.executescript(sql_script)
@@ -75,8 +75,9 @@ def insert_data_from_csv():
 def main():
     create_database()
     create_tables()
-    create_join_table()
     insert_data_from_csv()
+    create_join_table()
+  
 
 if __name__ == "__main__":
     main()
